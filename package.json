@@ -4,16 +4,18 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "api": "node --watch server/index.js"
-  },
-  "devDependencies": {
-    "vite": "^8.3.5"
+    "dev": "vp dev",
+    "build": "vp build",
+    "preview": "vp preview",
+    "api": "node --watch server/index.js",
+    "prepare": "vp config"
   },
   "dependencies": {
     "dotenv": "^18.0.9",
     "express": "^5.3.0"
+  },
+  "devDependencies": {
+    "vite": "catalog:",
+    "vite-plus": "catalog:"
   }
 }

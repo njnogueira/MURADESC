@@ -2,21 +2,25 @@
 SET NAMES utf8mb4;
 USE muradesc;
 
-INSERT INTO categoria (nome) VALUES ('Alimento'), ('Higiene'), ('Vestuário');
+INSERT INTO categoria (nome, cor_hex) VALUES 
+('Geral', '#3B82F6'),
+('Provas & Trabalhos', '#EF4444'),
+('Eventos & Feiras', '#10B981'),
+('Reuniões', '#F59E0B');
 
-INSERT INTO item (id_categoria, nome, unidade) VALUES
-(1, 'Arroz 5 kg', 'pacote'),
-(1, 'Feijão 1 kg', 'pacote'),
-(2, 'Sabonete', 'unidade'),
-(3, 'Agasalho', 'peça');
+INSERT INTO turma (nome_turma, ano_letivo) VALUES
+('6º Ano A', 2026),
+('7º Ano B', 2026),
+('8º Ano A', 2026),
+('9º Ano A', 2026);
 
-INSERT INTO doador (nome, email, telefone) VALUES
-('Mercado Bom Preço', 'contato@bompreco.exemplo.com', '(11) 3333-1000'),
-('Ana Souza', 'ana.souza@exemplo.com', '(11) 98888-1001');
+INSERT INTO usuario (nome, email, telefone) VALUES
+('Profa. Maria Oliveira', 'maria.oliveira@escola.exemplo.com', '(11) 97777-1111'),
+('Prof. João Santos', 'joao.santos@escola.exemplo.com', '(11) 98888-2222');
 
-INSERT INTO doacao (id_doador, data_doacao, observacao) VALUES
-(1, '2026-10-05', 'Entrega feita pelo mercado');
+INSERT INTO aviso (id_usuario, id_categoria, titulo, conteudo, data_publicacao, data_expiracao, fixado) VALUES
+(1, 2, 'Simulado Geral do 4º Bimestre', 'O simulado ocorrerá na próxima quinta-feira no horário normal de aula.', '2026-11-06', '2026-11-20', TRUE);
 
-INSERT INTO doacao_item (id_doacao, id_item, quantidade) VALUES
-(1, 1, 10),
-(1, 2, 15);
+INSERT INTO aviso_turma (id_aviso, id_turma) VALUES
+(1, 3),
+(1, 4);

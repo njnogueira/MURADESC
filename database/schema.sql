@@ -1,44 +1,52 @@
--- MURADESC · schema.sql
+-- MURADESC · schema.sql (Mural Digital Escolar)
 SET NAMES utf8mb4;
 DROP DATABASE IF EXISTS muradesc;
 CREATE DATABASE muradesc CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE muradesc;
 
-CREATE TABLE doador (
-  id_doador INT AUTO_INCREMENT PRIMARY KEY,
+-- 1. Tabela de Usuários (Professores/Gestores)
+CREATE TABLE usuario (
+  id_usuario INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(150) NOT NULL,
-  email VARCHAR(100) UNIQUE,
+  email VARCHAR(100) NOT NULL UNIQUE,
   telefone VARCHAR(20),
   data_cadastro TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
+-- 2. Tabela de Categorias dos Avisos
 CREATE TABLE categoria (
   id_categoria INT AUTO_INCREMENT PRIMARY KEY,
-  nome VARCHAR(60) NOT NULL UNIQUE
+  nome VARCHAR(60) NOT NULL UNIQUE,
+  cor_hex VARCHAR(7) NOT NULL DEFAULT '#3B82F6'
 );
 
-CREATE TABLE item (
-  id_item INT AUTO_INCREMENT PRIMARY KEY,
+-- 3. Tabela de Turmas Escolares
+CREATE TABLE turma (
+  id_turma INT AUTO_INCREMENT PRIMARY KEY,
+  nome_turma VARCHAR(50) NOT NULL,
+  ano_letivo INT NOT NULL
+);
+
+-- 4. Tabela Principal de Avisos
+CREATE TABLE aviso (
+  id_aviso INT AUTO_INCREMENT PRIMARY KEY,
+  id_usuario INT NOT NULL,
   id_categoria INT NOT NULL,
-  nome VARCHAR(150) NOT NULL,
-  unidade VARCHAR(20) NOT NULL DEFAULT 'unidade',
+  titulo VARCHAR(150) NOT NULL,
+  conteudo TEXT NOT NULL,
+  data_publicacao DATE NOT NULL,
+  data_expiracao DATE NOT NULL,
+  fixado BOOLEAN NOT NULL DEFAULT FALSE,
+  criado_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario),
   FOREIGN KEY (id_categoria) REFERENCES categoria (id_categoria)
 );
 
-CREATE TABLE doacao (
-  id_doacao INT AUTO_INCREMENT PRIMARY KEY,
-  id_doador INT NOT NULL,
-  data_doacao DATE NOT NULL,
-  observacao VARCHAR(255),
-  criado_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (id_doador) REFERENCES doador (id_doador)
-);
-
-CREATE TABLE doacao_item (
-  id_doacao INT NOT NULL,
-  id_item INT NOT NULL,
-  quantidade INT NOT NULL CHECK (quantidade > 0),
-  PRIMARY KEY (id_doacao, id_item),
-  FOREIGN KEY (id_doacao) REFERENCES doacao (id_doacao) ON DELETE CASCADE,
-  FOREIGN KEY (id_item) REFERENCES item (id_item)
+-- 5. Tabela Associativa N:N (Aviso -> Múltiplas Turmas)
+CREATE TABLE aviso_turma (
+  id_aviso INT NOT NULL,
+  id_turma INT NOT NULL,
+  PRIMARY KEY (id_aviso, id_turma),
+  FOREIGN KEY (id_aviso) REFERENCES aviso (id_aviso) ON DELETE CASCADE,
+  FOREIGN KEY (id_turma) REFERENCES turma (id_turma) ON DELETE CASCADE
 );

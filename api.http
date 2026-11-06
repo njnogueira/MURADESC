@@ -1,0 +1,37 @@
+@api = http://localhost:3000/api
+
+### Testar Saúde da API e Banco
+GET {{api}}/health
+
+### Listar Professores/Usuários
+GET {{api}}/usuarios
+
+### Cadastrar Novo Professor
+POST {{api}}/usuarios
+Content-Type: application/json
+
+{
+  "nome": "Prof. Roberto Silva",
+  "email": "roberto.silva@escola.exemplo.com",
+  "telefone": "(11) 96666-3333"
+}
+
+### Listar Turmas e Categorias
+GET {{api}}/turmas
+
+### Listar Avisos do Mural
+GET {{api}}/avisos
+
+### Publicar Novo Aviso Escolar (para múltiplas turmas)
+POST {{api}}/avisos
+Content-Type: application/json
+
+{
+  "id_usuario": 1,
+  "id_categoria": 1,
+  "titulo": "Reunião de Pais e Mestres",
+  "conteudo": "Convidamos todos os pais para a reunião presencial no auditório às 19h.",
+  "data_expiracao": "2026-11-25",
+  "fixado": true,
+  "turmas": [1, 2]
+}

@@ -3,10 +3,12 @@
 Mural Digital Escolar desenvolvido no Projeto Integrador Extensionista.
 
 ## Requisitos
+
 - Git
 - Vite+ (comando vp): https://viteplus.dev
 
 ## Como rodar o projeto
+
 1. Clone o repositório e entre na pasta:
    git clone [suspicious link removed]
    cd MURADESC

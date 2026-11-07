@@ -1,34 +1,28 @@
-# MURADESC - Mural Digital Escolar
+# MURADESC — Mural Digital Escolar
 
-Projeto Integrador Extensionista desenvolvido por **Neila** ([njnogueiraschool]([suspicious link removed])).
+Projeto desenvolvido para a disciplina de **Projeto Integrador Extensionista II (UNIMAR)**.
 
-O **MURADESC** é uma plataforma de mural digital escolar desenvolvida para modernizar a comunicação entre a gestão escolar, professores, alunos e responsáveis, substituindo murais de papel por avisos digitais categorizados e direcionados às turmas.
+## 📌 Sobre o Projeto
 
----
-
-## 🛠️ Tecnologias Utilizadas
-
-- **Frontend:** Vite+ (JavaScript / HTML5 / CSS3)
-- **Backend:** Node.js + Express (API REST)
-- **Banco de Dados:** MariaDB / MySQL (`mysql2` com Pool de Conexões)
-- **Gerenciamento de Pacotes e Runtime:** Vite+ (`vp`)
-- **Controle de Versão:** Git & GitHub
+O **MURADESC** é um sistema web responsivo projetado para centralizar e organizar a divulgação de comunicados, provas, trabalhos e eventos escolares. O projeto adota uma arquitetura desacoplada, separando o Frontend (desenvolvido em JavaScript Vanilla com Vite+) do Backend (API REST em Node.js com Express e banco de dados MySQL/MariaDB).
 
 ---
 
-## 📋 Requisitos Prévios
+## 🛠️ Requisitos e Ferramentas
 
-- **Git** instalado ([git-scm.com](https://git-scm.com))
-- **Vite+ (`vp`)** instalado ([viteplus.dev](https://viteplus.dev))
-- Servidor **MySQL / MariaDB** rodando na porta 3306
+- [Git](https://git-scm.com/)
+- [Vite+](https://vite.plus/) (`vp`)
+- [VS Code](https://code.visualstudio.com/)
 
----
+## 🚀 Como Executar o Projeto
 
-## 🚀 Como Rodar o Projeto Localmente
-
-### 1. Clonar o Repositório e Entrar na Pasta
-
-```bash
-git clone [suspicious link removed]
-cd MURADESC
-```
+1. Clone o repositório e entre na pasta:
+   git clone https://github.com/njnogueira/MURADESC
+   cd MURADESC
+2. Instale as dependências: vp install
+3. Copie .env.example para .env
+4. Terminal 1, inicie a API: vp run api
+5. Terminal 2, inicie o frontend: vp dev
+6. Abra http://localhost:5173
+   git add .
+   git commit -m "Adiciona README com instruções de execução"

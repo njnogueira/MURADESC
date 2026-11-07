@@ -16,6 +16,8 @@ O **MURADESC** é um sistema web responsivo projetado para centralizar e organiz
 
 ## 🚀 Como Executar o Projeto
 
+<<<<<<< HEAD
+
 1. Clone o repositório e entre na pasta:
    git clone https://github.com/njnogueira/MURADESC
    cd MURADESC
@@ -26,3 +28,23 @@ O **MURADESC** é um sistema web responsivo projetado para centralizar e organiz
 6. Abra http://localhost:5173
    git add .
    git commit -m "Adiciona README com instruções de execução"
+   \=======
+
+## 📋 Requisitos Prévios
+
+- **Git** instalado ([git-scm.com](https://git-scm.com))
+- **Vite+ (`vp`)** instalado ([viteplus.dev](https://viteplus.dev))
+- Servidor **MySQL / MariaDB** rodando na porta 3306
+
+---
+
+## 🚀 Como Rodar o Projeto Localmente
+
+### 1. Clonar o Repositório e Entrar na Pasta
+
+```bash
+git clone (https://github.com/njnogueira/MURADESC)
+cd MURADESC
+```
+
+> > > > > > > 6b52f30b8707a0781c207d3dc6bd3f339fbe8831

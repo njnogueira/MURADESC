@@ -29,6 +29,6 @@ O **MURADESC** é uma plataforma de mural digital escolar desenvolvida para mode
 ### 1. Clonar o Repositório e Entrar na Pasta
 
 ```bash
-git clone [suspicious link removed]
+git clone (https://github.com/njnogueira/MURADESC)
 cd MURADESC
 ```
